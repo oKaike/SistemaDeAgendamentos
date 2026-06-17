@@ -1,0 +1,22 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+
+.formCadastro{
+    flex-direction: column;
+    width: 20px;
+    border: solid;
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+    border: black 1px solid
+}
