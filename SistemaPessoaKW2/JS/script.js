@@ -34,6 +34,7 @@ function funcConsultarInformacoesCadastrais(){
             'Content-Type' : 'application/json'
         },
         body:JSON.stringify({
+            id: id,
             Cpf :cpf
         })
 
