@@ -5,16 +5,26 @@ include "pessoa.php";
 $conn = new conexao;
 $conn->bd();
 
-function inserir(){
-    
-}
-function atualizar(){
+class controllerPessoa{
+    public function inserir(){
+        $pessoa = new Pessoa; 
+        $sql = "insert into pessoa(cpf, nome, contato, senha) value(?, ?, ?, ?)";
+        
+        $insert = $conn->prepare($sql);
 
-}
-function delete(){
+        $insert->bindValue(1,$pessoa->geCpf());
+        $insert->bindValue(2,$pessoa->getNome());
+        $insert->bindValue(3,$pessoa->getContato());
+        $insert->bindValue(4,$pessoa->getSenha());
+    }
 
-}
-function pegar(){
+    public function atualizar(){
 
+    }
+    public function delete(){
+
+    }
+    public function pegar(){
+
+    } 
 }
-?>

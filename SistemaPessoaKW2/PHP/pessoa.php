@@ -6,29 +6,29 @@ class Pessoa{
     private $senha;
 
     public function getNome(){
-        return $nome;
+        return $this->nome;
     }
     public function getCpf(){
-        return $cpf;
+        return $this->cpf;
     }
     public function getContato(){
-        return $contato;
+        return $this->contato;
     }
     public function getSenha(){
-        return $senha;
+        return $this->senha;
     }
 //----------------------------
     public function setNome($nome){
-        $nome = $this->nome;
+        $this->nome = $nome;
     }
     public function setCpf($cpf){
-        $cpf = $this->cpf;
+        $this->cpf = $cpf;
     }
     public function setContato($contato){
-        $contato = $this->contato;
+        $this->contato = $contato;
     }
     public function setSenha($senha){
-        $senha = $this->senha;
+        $this->senha = $senha;
     }
 }
 ?>
