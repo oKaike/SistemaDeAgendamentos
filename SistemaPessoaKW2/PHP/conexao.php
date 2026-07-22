@@ -1,18 +1,22 @@
 <?php
 class conexao{
-    public $database = "SistemaDeAgendamentos";
-    public $host = "localhost";
-    public $user = "root";
-    public $password = "";
+    public const DATABASE = "cadastroAgendas";
+    public const HOST = "localhost";
+    public const USER = "root";
+    public const PASS = "";
 
-    public function bd(){
+    public static $conn;
+
+    public static function bd(){
         try{
-        $conn = new PDO("mysql:host = $this->host; dbname = $this->database", $this->user, $this->password);
+        self::$conn = new PDO("mysql:host=". self::HOST. ";dbname=". self::DATABASE, self::USER, self::PASS);
+        self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Conectado com sucesso <br>";
         }
-        catch(error $e){
-            echo "Houve um erro na conexão com o banco: ". $e;
+        catch(PDOException $e){
+            echo "Houve um erro na conexão com o banco: ". $e ->getMessage();
         }
+        return self::$conn;
     }
 }
 ?>

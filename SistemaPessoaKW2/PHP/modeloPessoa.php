@@ -1,12 +1,13 @@
 <?php
-// include "pessoa.php";
-include "controllerPessoa.php";
+require_once "pessoa.php";
+require_once "controllerPessoa.php";
 
 class modeloPessoa{
 //  public $dados = file_get_contents('../JS/script.');
 // echo $dados;
  public function RequestMetodos(){
     $dados = file_get_contents('php://input');
+    $controle = new controllerPessoa;
     // $_SERVER['REQUEST_METHOD'] = "POST";
 
     if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -15,6 +16,8 @@ class modeloPessoa{
         $cpf = $_POST['cpf'] ?? "12345";
         $contato = $_POST['contato'] ?? "11989196892";
         $senha = $_POST['senha'] ?? "53190";
+        
+        echo $cpf. "<br>";
 
         $pessoa = new Pessoa;
         $pessoa->setCpf($cpf);
@@ -23,6 +26,7 @@ class modeloPessoa{
         $pessoa->setSenha($senha);
 
         echo "Estamos usando metodo de requisição: ". $_SERVER['REQUEST_METHOD'];
+        $controle->inserir();
     }
     else if($_SERVER['REQUEST_METHOD'] == "GET"){
         // Consulta de Usuario
@@ -30,7 +34,7 @@ class modeloPessoa{
     }
     else if($_SERVER['REQUEST_METHOD'] == "PUT"){
         // Atualizar dados do usuario
-
+        
     }
     else if($_SERVER['REQUEST_METHOD'] == "'DELETE'"){
         // Deletar daods do usuario
