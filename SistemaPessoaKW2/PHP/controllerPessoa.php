@@ -5,6 +5,7 @@ require_once "modeloPessoa.php";
 require_once "pessoa.php";
 class controllerPessoa{
     public function inserir(){
+        //Inserção de Dados
         $conn = new conexao;
         $smt = $conn::bd();
         
@@ -49,12 +50,26 @@ class controllerPessoa{
     }
 
     public function atualizar(){
+        //Atuaizaçãode Dados
+        $conn = new conexao;
+        $smt = $conn::bd();
+        $sql = "update pessoa set cpf = ? or nome = ? or contato = ? or senha = ?";
 
+        $update = $smt->prepare($sql);
+        $update->bindValue(1, $_PUT['cpf']);
+        $update->bindValue(2, $_PUT['nome']);
+        $update->bindValue(3, $_PUT['contato']);
+        $update->bindValue(4, $_PUT['senha']);
+        
+        if($update->execute()){
+            echo "Dados atualizados com sucesso";
+        }
     }
     public function delete(){
 
     }
     public function pegar(){
+        //Pegar informações do Usuario
         $conn = new conexao;
         $smt = $conn::bd();
         $sql = "select * pessoa where cpf=? and senha=?";

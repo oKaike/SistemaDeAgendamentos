@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
+    <link rel="stylesheet" href="../../CSS/agenda.css">
 </head>
 <body>
+    <label for="">Escolha uma data:</label><br>
     
+    <input type= "date" class="Data geral">
+    <input type="time" class="Hora geral">
+
+    <button onclick="DadosRecebidos()">Enviar</button>
+    <p id="p"></p>
 </body>
+<script>
+function DadosRecebidos(){
+    let p = document.getElementById("p")
+    let data = document.getElementById('dataHora').value;
+    p.innerHTML = data;
+        }
+
+</script>
 </html>

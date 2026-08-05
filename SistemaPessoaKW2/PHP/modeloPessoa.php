@@ -7,7 +7,7 @@ class modeloPessoa{
 // echo $dados;
  public function RequestMetodos(){
     $dados = json_decode(file_get_contents('php://input'), true);
-    
+
     $controle = new controllerPessoa;
     // $_SERVER['REQUEST_METHOD'] = "POST";
 
@@ -43,7 +43,19 @@ class modeloPessoa{
     }
     else if($_SERVER['REQUEST_METHOD'] == "PUT"){
         // Atualizar dados do usuario
+        $cpf = $_PUT['cpf'];
+        $nome = $_PUT['nome'];
+        $contato = $_PUT['contato'];
+        $senha = $_PUT['senha'];
 
+        $pessoa = new pessoa;
+        $pessoa-> setCpf($cpf);
+        $pessoa-> setNome($nome);
+        $pessoa-> setContato($contato);
+        $pessoa-> setSenha($senha);
+        
+        echo "Estamos usando" . $_SERVER['REQUEST_METHOD'];
+        $controle->atualizar();
     }
     else if($_SERVER['REQUEST_METHOD'] == "'DELETE'"){
         // Deletar daods do usuario
