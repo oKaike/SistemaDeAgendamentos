@@ -1,4 +1,23 @@
-.geral{
+/* .geral{
     width: 100px;
     height: 100px;
+} */
+body{
+    font-family: Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333333;
 }
+
+.calendario{
+    background-color: #111111;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #222222;
+    overflow: hidden;
+    width: 300px;
+    color: white;
+    padding: 20px;
+}
+

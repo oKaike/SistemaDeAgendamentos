@@ -4,23 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
-    <link rel="stylesheet" href="../../CSS/agenda.css">
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../../JS/agenda.js"></script>
 </head>
 <body>
-    <label for="">Escolha uma data:</label><br>
-    
-    <input type= "date" class="Data geral">
-    <input type="time" class="Hora geral">
-
-    <button onclick="DadosRecebidos()">Enviar</button>
-    <p id="p"></p>
+    <div class="calendario">
+        <div class="header">
+            <div id="prev" class="btn"><i class="fa-solid fa-arrow-left"></i></div>
+            <div id="month-year"></div>
+            <div id="next" class="btn"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="semana">
+            <div>Seg</div>
+            <div>Ter</div>
+            <div>Qua</div>
+            <div>Qui</div>
+            <div>Sex</div>
+            <div>Sab</div>
+            <div>Dom</div>
+        </div>
+        <div class="days" id="days"></div>
+    </div>
 </body>
-<script>
-function DadosRecebidos(){
-    let p = document.getElementById("p")
-    let data = document.getElementById('dataHora').value;
-    p.innerHTML = data;
-        }
+<style>
+body{
+    font-family: Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333333;
+}
 
-</script>
+.calendario{
+    background-color: #111111;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #222222;
+    overflow: hidden;
+    width: 300px;
+    color: white;
+    padding: 20px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.btn{
+    cursor: pointer;
+}
+</style>
 </html>
